@@ -3,6 +3,7 @@ package com.vikas.product;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 import org.junit.jupiter.api.Test;
@@ -36,7 +37,7 @@ class ProductwebApplicationTests {
 		product.setId(uniqueID);
 		product.setDescription("Mango");
 		product.setName("Mobile");
-		product.setPrice(1000);
+		product.setPrice(BigDecimal.valueOf(100));
 		Product newProduct = restTemplate.postForObject(baseURL+"saveproducts", product, Product.class);
 		
 		assertNotNull(newProduct);

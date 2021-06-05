@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vikas.coupon.model.Coupon;
@@ -21,17 +21,16 @@ public class CoupenController {
 	private CouponRepository repos;
 	
     @PostMapping("/coupon")
-	public Coupon createCoupon(@RequestParam Coupon coupon) {
+	public Coupon createCoupon(@RequestBody Coupon coupon) {
     	LOGGER.info("Inside save coupon");
     	return repos.save(coupon);
 		
 	}
     
     @GetMapping("/coupon/{code}")
-	public Coupon createCoupon(@PathVariable("code") String code) {
-    	LOGGER.info("Inside save coupon");
-    	return repos.findbyCode(code);
+	public Coupon getCoupon(@PathVariable("code") String code) {
+    	LOGGER.info("Inside get coupon");
+    	return repos.findByCode(code);
 	}
-
 
 }

@@ -6,6 +6,6 @@ import com.vikas.coupon.model.Coupon;
 
 public interface CouponRepository extends JpaRepository<Coupon, Long>{
 
-	Coupon findbyCode(String code);
+	Coupon findByCode(String code);
 
 }
